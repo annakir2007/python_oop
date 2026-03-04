@@ -1,9 +1,9 @@
-
 """
-Модуль содержит класс Apartment для представления квартиры в системе недвижимости.
+Класс Apartment для представления квартиры в системе недвижимости.
 """
 
 from datetime import datetime, timedelta
+from validate import (validate_address, validate_area, validate_rooms, validate_price, validate_floor, validate_construction_year)
 
 class Apartment:
     # Атрибуты класса:
@@ -48,49 +48,57 @@ class Apartment:
             construction_year = datetime.now().year
         self.construction_year = construction_year
     
-    #Свойства:
+    # Свойства:
     
     @property
     def address(self):
         return self.__address
+    
     @address.setter
     def address(self, value):
-        self.__address = self._validate_address(value, "Адрес")
+        # Используем функцию валидации из модуля validate
+        self.__address = validate_address(value, "Адрес")
     
     @property
     def area(self):
         return self.__area
+    
     @area.setter
     def area(self, value):
-        self.__area = self._validate_area(value)
+        # Используем функцию валидации с атрибутами класса
+        self.__area = validate_area(value, self.min_area, self.max_area)
     
     @property
     def rooms(self):
         return self.__rooms
+    
     @rooms.setter
     def rooms(self, value):
-        self.__rooms = self._validate_rooms(value)
+        self.__rooms = validate_rooms(value, self.min_rooms, self.max_rooms)
     
     @property
     def price(self):
         return self.__price
+    
     @price.setter
     def price(self, value):
-        self.__price = self._validate_price(value)
+        self.__price = validate_price(value, self.min_price, self.max_price)
     
     @property
     def floor(self):
         return self.__floor
+    
     @floor.setter
     def floor(self, value):
-        self.__floor = self._validate_floor(value)
+        self.__floor = validate_floor(value, self.min_floor, self.max_floor)
     
     @property
     def construction_year(self):
         return self.__construction_year
+    
     @construction_year.setter
     def construction_year(self, value):
-        self.__construction_year = self._validate_construction_year(value)
+        self.__construction_year = validate_construction_year(value)
     
     @property
     def status(self):
@@ -107,7 +115,7 @@ class Apartment:
         """Доступна ли квартира"""
         return self.__status == self.STATUS_AVAILABLE
     
-    #Магические методы:
+    # Магические методы:
     
     def __str__(self):
         return (f"Адрес: {self.__address}\n"
@@ -134,61 +142,7 @@ class Apartment:
                 self.__floor == other.__floor and
                 self.__construction_year == other.__construction_year)
     
-    #Методы валидации:
-    
-    def _validate_address(self, value, field_name):
-        """Проверка адреса"""
-        if not isinstance(value, str):
-            raise TypeError(f"{field_name} должен быть строкой")
-        value = value.strip()
-        if len(value) == 0:
-            raise ValueError(f"{field_name} не может быть пустым")
-        if len(value) < 5:
-            raise ValueError(f"{field_name} слишком короткий (минимум 5 символов)")
-        return value
-    
-    def _validate_area(self, area):
-        """Проверка площади"""
-        if not isinstance(area, (int, float)):
-            raise TypeError("Площадь должна быть числом")
-        if self.min_area <= area <= self.max_area:
-            return float(area)
-        raise ValueError(f"Площадь должна быть от {self.min_area} до {self.max_area} кв.м")
-    
-    def _validate_rooms(self, rooms):
-        """Проверка количества комнат"""
-        if not isinstance(rooms, int):
-            raise TypeError("Количество комнат должно быть целым числом")
-        if self.min_rooms <= rooms <= self.max_rooms:
-            return rooms
-        raise ValueError(f"Количество комнат должно быть от {self.min_rooms} до {self.max_rooms}")
-    
-    def _validate_price(self, price):
-        """Проверка цены"""
-        if not isinstance(price, (int, float)):
-            raise TypeError("Цена должна быть числом")
-        if self.min_price <= price <= self.max_price:
-            return float(price)
-        raise ValueError(f"Цена должна быть от {self.min_price:.0f} до {self.max_price:.0f} руб.")
-    
-    def _validate_floor(self, floor):
-        """Проверка этажа"""
-        if not isinstance(floor, int):
-            raise TypeError("Этаж должен быть целым числом")
-        if self.min_floor <= floor <= self.max_floor:
-            return floor
-        raise ValueError(f"Этаж должен быть от {self.min_floor} до {self.max_floor}")
-    
-    def _validate_construction_year(self, year):
-        """Проверка года постройки"""
-        if not isinstance(year, int):
-            raise TypeError("Год постройки должен быть целым числом")
-        current_year = datetime.now().year
-        if 1800 <= year <= current_year:
-            return year
-        raise ValueError(f"Год постройки должен быть от 1800 до {current_year}")
-    
-    #Бизнес-методы:
+    # Бизнес-методы:
     
     def can_be_sold(self):
         """Проверка, можно ли продать квартиру"""
@@ -239,7 +193,7 @@ class Apartment:
 
 
 if __name__ == "__main__":
-    # Простая проверка работы класса
+    # проверка работы класса
     apt = Apartment("ул. Ленина, 1", 45.5, 2, 5000000, 5, 2020)
     print(apt)
     print(repr(apt))
