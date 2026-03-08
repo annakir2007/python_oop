@@ -1,4 +1,3 @@
-
 from model import Apartment
 
 # Создаем несколько квартир

@@ -1,6 +1,6 @@
 # <h1>ЛР-1 — Класс и инкапсуляция<h1>
 
-# <h4>model.py, demo.py<h4>
+# <h4>model.py, demo.py, validate.py<h4>
 
 ### Теоретическая часть
 
