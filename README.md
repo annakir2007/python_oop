@@ -1,1 +1,1 @@
-# <h1>Лабораторная работа 1 — Класс и инкапсуляция - [Link Text](https://github.com/annakir2007/python_oop/blob/main/src/lab01/README.md)<h1>
+# <h1>Лабораторная работа 1 — Класс и инкапсуляция - [здесь](https://github.com/annakir2007/python_oop/blob/main/src/lab01/README.md)<h1>
