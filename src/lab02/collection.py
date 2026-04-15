@@ -1,7 +1,10 @@
 """
 Коллекция квартир для управления объектами Apartment
 """
-from model import Apartment
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from lab01.model import Apartment
 
 class Apartment_collection:
     """Коллекция квартир"""
