@@ -2,7 +2,10 @@
 Класс Apartment для представления квартиры в системе недвижимости.
 """
 
-from datetime import datetime, timedelta
+import sys
+import os
+sys.path.insert(0, os.path.dirname(__file__))
+
 from validate import (validate_address, validate_area, validate_rooms, validate_price, validate_floor, validate_construction_year)
 
 class Apartment:
