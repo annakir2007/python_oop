@@ -5,3 +5,5 @@
 # Лабораторная работа 3 — Наследование и иерархия классов - [здесь](https://github.com/annakir2007/python_oop/tree/main/src/lab03)
 
 # Лабораторная работа 4 — Интерфейсы и абстрактные классы (ABC) - [здесь](https://github.com/annakir2007/python_oop/tree/main/src/lab04)
+
+# Лабораторная работа 5 — Функции как аргументы. Стратегии и делегаты. - [здесь](https://github.com/annakir2007/python_oop/tree/main/src/lab05)
