@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 """
 Класс Apartment для представления квартиры в системе недвижимости.
 """
