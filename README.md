@@ -8,4 +8,4 @@
 
 # Лабораторная работа 5 — Функции как аргументы. Стратегии и делегаты. - [здесь](https://github.com/annakir2007/python_oop/tree/main/src/lab05)
 
-# Лабораторная работа 6 — Generics и typing. - [здесь](https://github.com/annakir2007/python_oop_tasks/tree/main/src/lab06)
+# Лабораторная работа 6 — Generics и typing. - [здесь](https://github.com/annakir2007/python_oop/tree/main/src/lab06)
