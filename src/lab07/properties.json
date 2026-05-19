@@ -1,0 +1,21 @@
+[
+  {
+    "type": "Apartment",
+    "address": "Таганская, 5",
+    "area": 23.0,
+    "rooms": 2,
+    "price": 200000.0,
+    "floor": 1,
+    "construction_year": 1976
+  },
+  {
+    "type": "House",
+    "address": "Дачная, 7",
+    "area": 45.0,
+    "land_area": 6.0,
+    "floors": 3,
+    "price": 1977879.0,
+    "construction_year": 2023,
+    "has_garage": true
+  }
+]
