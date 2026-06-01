@@ -6,7 +6,6 @@ from typing import List, Any
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from lab07.app import App
-from lab01.model import Apartment
 from lab03.models import NewBuilding, SecondaryProperty
 from lab04.models import House
 from lab07.exceptions import ItemNotFoundError, DuplicateItemError
@@ -135,6 +134,8 @@ class CLI:
             parking = input("Подземный паркинг? (y/n): ").lower() == 'y'
             item = self.app.add_new_building(address, area, rooms, price, floor, year,
                                             developer, completion, finishing, parking)
+
+
         elif choice == 3:
             owners = self._input_int("Предыдущих владельцев: ")
             print("Состояние: 1-отличное, 2-хорошее, 3-удовл., 4-плохое")
